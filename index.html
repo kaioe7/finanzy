@@ -16,6 +16,7 @@
 
   <section id="authView" class="auth-shell">
     <div class="auth-brand">
+      <div class="floating-shapes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
       <a class="logo" href="#"><span class="logo-mark">F</span><span>finanzy</span></a>
       <div class="hero-copy">
         <span class="eyebrow">CONTROLE QUE TRANSFORMA</span>
@@ -83,6 +84,7 @@
     </aside>
 
     <main class="main">
+      <div class="app-ambient" aria-hidden="true"><i></i><i></i><i></i></div>
       <header class="topbar">
         <button id="menuBtn" class="icon-btn menu-btn">☰</button>
         <div><p class="muted small" id="dateGreeting"></p><h2 id="welcomeTitle">Olá!</h2></div>
@@ -91,13 +93,13 @@
 
       <section id="dashboardPage" class="page active">
         <div class="page-heading"><div><span class="eyebrow">SEU MÊS EM UM OLHAR</span><h1>Visão geral</h1></div><select id="monthFilter" class="select"></select></div>
-        <div class="stat-grid">
+        <div class="stat-grid reveal-group">
           <article class="stat-card income"><span class="stat-icon">↗</span><div><span>Receitas</span><strong id="incomeValue">R$ 0,00</strong><small id="incomeCount">0 lançamentos</small></div></article>
           <article class="stat-card expense"><span class="stat-icon">↘</span><div><span>Despesas</span><strong id="expenseValue">R$ 0,00</strong><small id="expenseCount">0 lançamentos</small></div></article>
           <article class="stat-card balance"><span class="stat-icon">◇</span><div><span>Saldo disponível</span><strong id="balanceValue">R$ 0,00</strong><small id="balanceHint">Comece adicionando sua renda</small></div></article>
           <article class="stat-card savings"><span class="stat-icon">◎</span><div><span>Taxa de economia</span><strong id="savingValue">0%</strong><small>Meta recomendada: 20%</small></div></article>
         </div>
-        <div class="dashboard-grid">
+        <div class="dashboard-grid reveal-group">
           <article class="panel chart-panel"><div class="panel-title"><div><h3>Receitas x despesas</h3><p>Comparativo dos últimos 6 meses</p></div><span class="legend"><i class="dot green"></i>Receitas <i class="dot orange"></i>Despesas</span></div><div id="barChart" class="bar-chart"></div></article>
           <article class="panel"><div class="panel-title"><div><h3>Gastos por categoria</h3><p>Para onde seu dinheiro está indo</p></div></div><div id="categoryChart" class="category-chart"></div></article>
         </div>

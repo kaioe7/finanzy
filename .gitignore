@@ -1,4 +1,6 @@
 .chrome-test/
+.chrome-preview/
+preview.png
 node_modules/
 .env
 .env.*

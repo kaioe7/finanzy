@@ -1,6 +1,8 @@
 .git/
 .github/
 .chrome-test/
+.chrome-preview/
+preview.png
 .vercel/
 node_modules/
 server.js
