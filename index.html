@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090909" />
+  <meta name="description" content="Finanzy — controle financeiro simples, bonito e inteligente." />
+  <title>Finanzy — Seu dinheiro, sob controle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <section id="authView" class="auth-shell">
+    <div class="auth-brand">
+      <a class="logo" href="#"><span class="logo-mark">F</span><span>finanzy</span></a>
+      <div class="hero-copy">
+        <span class="eyebrow">CONTROLE QUE TRANSFORMA</span>
+        <h1>Seu dinheiro.<br><em>Suas escolhas.</em></h1>
+        <p>Entenda cada real, planeje o amanhã e faça seu dinheiro trabalhar a favor dos seus sonhos.</p>
+        <div class="hero-proof">
+          <div><strong>100%</strong><span>privado</span></div>
+          <div><strong>24/7</strong><span>disponível</span></div>
+          <div><strong>∞</strong><span>possibilidades</span></div>
+        </div>
+      </div>
+      <p class="auth-quote">“Pequenos controles criam grandes liberdades.”</p>
+    </div>
+
+    <div class="auth-panel">
+      <div class="auth-card">
+        <div class="mobile-logo logo"><span class="logo-mark">F</span><span>finanzy</span></div>
+        <div id="loginBox">
+          <span class="auth-kicker">BEM-VINDO DE VOLTA</span>
+          <h2>Acesse sua conta</h2>
+          <p class="muted">Continue construindo sua liberdade financeira.</p>
+          <form id="loginForm" class="form-stack">
+            <label>E-mail<div class="input-wrap"><span>✉</span><input id="loginEmail" type="email" placeholder="voce@email.com" required autocomplete="email"></div></label>
+            <label>Senha<div class="input-wrap"><span>⌑</span><input id="loginPassword" type="password" placeholder="Sua senha" required autocomplete="current-password"><button type="button" class="eye" data-toggle-password="loginPassword">◉</button></div></label>
+            <button class="btn primary full" type="submit">Entrar na minha conta <span>→</span></button>
+          </form>
+          <div class="divider"><span>ou</span></div>
+          <button id="showRegister" class="btn ghost full">Criar conta grátis</button>
+          <p class="demo-hint">Seus dados ficam protegidos e sincronizados na nuvem.</p>
+        </div>
+
+        <div id="registerBox" hidden>
+          <span class="auth-kicker">COMECE AGORA</span>
+          <h2>Crie sua conta</h2>
+          <p class="muted">Seu primeiro passo para uma vida mais tranquila.</p>
+          <form id="registerForm" class="form-stack">
+            <label>Nome completo<div class="input-wrap"><span>♙</span><input id="regName" required placeholder="Como podemos chamar você?"></div></label>
+            <label>E-mail<div class="input-wrap"><span>✉</span><input id="regEmail" type="email" required placeholder="voce@email.com"></div></label>
+            <label>Senha<div class="input-wrap"><span>⌑</span><input id="regPassword" type="password" minlength="6" required placeholder="Mínimo de 6 caracteres"><button type="button" class="eye" data-toggle-password="regPassword">◉</button></div></label>
+            <button class="btn primary full" type="submit">Criar minha conta <span>→</span></button>
+          </form>
+          <button id="showLogin" class="text-button">← Já tenho uma conta</button>
+        </div>
+        <div id="setupAlert" class="setup-alert" hidden>
+          <strong>Banco ainda não configurado</strong>
+          <span>Execute <b>supabase-schema.sql</b> no SQL Editor do Supabase e recarregue a página.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="appView" class="app-shell" hidden>
+    <aside class="sidebar">
+      <div class="logo"><span class="logo-mark">F</span><span>finanzy</span></div>
+      <nav>
+        <button class="nav-item active" data-page="dashboard"><span>⌂</span> Visão geral</button>
+        <button class="nav-item" data-page="transactions"><span>↔</span> Lançamentos</button>
+        <button class="nav-item" data-page="fixed"><span>◫</span> Gastos fixos</button>
+        <button class="nav-item" data-page="goals"><span>◎</span> Metas</button>
+        <button class="nav-item" data-page="reports"><span>▥</span> Relatórios</button>
+        <button class="nav-item admin-only" data-page="admin"><span>♙</span> Administração</button>
+      </nav>
+      <div class="side-tip"><span>💡</span><strong>Dica do dia</strong><p>Reserve ao menos 10% da sua renda para o futuro.</p></div>
+      <button id="logoutBtn" class="nav-item logout"><span>↪</span> Sair</button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="menuBtn" class="icon-btn menu-btn">☰</button>
+        <div><p class="muted small" id="dateGreeting"></p><h2 id="welcomeTitle">Olá!</h2></div>
+        <div class="top-actions"><button id="quickAdd" class="btn primary">＋ Novo lançamento</button><button id="themeBtn" class="icon-btn" title="Alternar tema">☼</button><div class="avatar" id="userAvatar">U</div></div>
+      </header>
+
+      <section id="dashboardPage" class="page active">
+        <div class="page-heading"><div><span class="eyebrow">SEU MÊS EM UM OLHAR</span><h1>Visão geral</h1></div><select id="monthFilter" class="select"></select></div>
+        <div class="stat-grid">
+          <article class="stat-card income"><span class="stat-icon">↗</span><div><span>Receitas</span><strong id="incomeValue">R$ 0,00</strong><small id="incomeCount">0 lançamentos</small></div></article>
+          <article class="stat-card expense"><span class="stat-icon">↘</span><div><span>Despesas</span><strong id="expenseValue">R$ 0,00</strong><small id="expenseCount">0 lançamentos</small></div></article>
+          <article class="stat-card balance"><span class="stat-icon">◇</span><div><span>Saldo disponível</span><strong id="balanceValue">R$ 0,00</strong><small id="balanceHint">Comece adicionando sua renda</small></div></article>
+          <article class="stat-card savings"><span class="stat-icon">◎</span><div><span>Taxa de economia</span><strong id="savingValue">0%</strong><small>Meta recomendada: 20%</small></div></article>
+        </div>
+        <div class="dashboard-grid">
+          <article class="panel chart-panel"><div class="panel-title"><div><h3>Receitas x despesas</h3><p>Comparativo dos últimos 6 meses</p></div><span class="legend"><i class="dot green"></i>Receitas <i class="dot orange"></i>Despesas</span></div><div id="barChart" class="bar-chart"></div></article>
+          <article class="panel"><div class="panel-title"><div><h3>Gastos por categoria</h3><p>Para onde seu dinheiro está indo</p></div></div><div id="categoryChart" class="category-chart"></div></article>
+        </div>
+        <article class="panel recent"><div class="panel-title"><div><h3>Últimos lançamentos</h3><p>Movimentações mais recentes</p></div><button class="text-button" data-go="transactions">Ver todos →</button></div><div id="recentList"></div></article>
+      </section>
+
+      <section id="transactionsPage" class="page"><div class="page-heading"><div><span class="eyebrow">ORGANIZAÇÃO TOTAL</span><h1>Lançamentos</h1><p>Registre e acompanhe toda a sua movimentação.</p></div><button class="btn primary add-trigger">＋ Adicionar</button></div><div class="toolbar"><input id="searchInput" class="search" placeholder="⌕  Buscar lançamento..."><select id="typeFilter" class="select"><option value="all">Todos os tipos</option><option value="income">Receitas</option><option value="expense">Despesas</option></select></div><article class="panel table-wrap"><table><thead><tr><th>Descrição</th><th>Categoria</th><th>Data</th><th>Tipo</th><th>Valor</th><th></th></tr></thead><tbody id="transactionTable"></tbody></table><div id="emptyTransactions" class="empty" hidden><span>↔</span><h3>Nenhum lançamento</h3><p>Adicione sua primeira receita ou despesa.</p></div></article></section>
+
+      <section id="fixedPage" class="page"><div class="page-heading"><div><span class="eyebrow">PREVISIBILIDADE</span><h1>Gastos fixos</h1><p>Controle as contas que se repetem todo mês.</p></div><button id="addFixedBtn" class="btn primary">＋ Novo gasto fixo</button></div><div id="fixedGrid" class="card-grid"></div></section>
+      <section id="goalsPage" class="page"><div class="page-heading"><div><span class="eyebrow">SEUS PLANOS</span><h1>Metas financeiras</h1><p>Transforme sonhos em planos possíveis.</p></div><button id="addGoalBtn" class="btn primary">＋ Nova meta</button></div><div id="goalsGrid" class="card-grid"></div></section>
+      <section id="reportsPage" class="page"><div class="page-heading"><div><span class="eyebrow">DECISÕES INTELIGENTES</span><h1>Relatório mensal</h1><p>Um retrato completo da sua saúde financeira.</p></div><div class="report-actions"><button id="printReport" class="btn ghost">⇩ Salvar PDF</button><button id="shareWhatsapp" class="btn whatsapp">◉ Compartilhar no WhatsApp</button></div></div><div id="reportContent" class="report-sheet"></div></section>
+      <section id="adminPage" class="page"><div class="page-heading"><div><span class="eyebrow">GESTÃO DO NEGÓCIO</span><h1>Administração</h1><p>Gerencie os clientes da sua plataforma.</p></div></div><div id="adminStats" class="stat-grid admin-stats"></div><article class="panel table-wrap"><table><thead><tr><th>Cliente</th><th>E-mail</th><th>Cadastro</th><th>Lançamentos</th><th>Status</th></tr></thead><tbody id="usersTable"></tbody></table></article></section>
+    </main>
+  </div>
+
+  <dialog id="transactionModal" class="modal"><form id="transactionForm"><div class="modal-head"><div><span class="auth-kicker">MOVIMENTAÇÃO</span><h2>Novo lançamento</h2></div><button type="button" class="modal-close">×</button></div><div class="type-switch"><label><input type="radio" name="txType" value="expense" checked><span>Despesa</span></label><label><input type="radio" name="txType" value="income"><span>Receita</span></label></div><div class="form-grid"><label class="wide">Descrição<input id="txDescription" required placeholder="Ex.: Salário, supermercado..."></label><label>Valor (R$)<input id="txValue" type="number" min="0.01" step="0.01" required placeholder="0,00"></label><label>Data<input id="txDate" type="date" required></label><label class="wide">Categoria<select id="txCategory" required></select></label></div><div class="modal-actions"><button type="button" class="btn ghost modal-close">Cancelar</button><button type="submit" class="btn primary">Salvar lançamento</button></div></form></dialog>
+  <dialog id="simpleModal" class="modal"><form id="simpleForm"><div class="modal-head"><div><span class="auth-kicker" id="simpleKicker"></span><h2 id="simpleTitle"></h2></div><button type="button" class="simple-close">×</button></div><div id="simpleFields" class="form-grid"></div><div class="modal-actions"><button type="button" class="btn ghost simple-close">Cancelar</button><button type="submit" class="btn primary">Salvar</button></div></form></dialog>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
