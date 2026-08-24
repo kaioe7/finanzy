@@ -97,8 +97,14 @@
           <article class="stat-card income"><span class="stat-icon">↗</span><div><span>Receitas</span><strong id="incomeValue">R$ 0,00</strong><small id="incomeCount">0 lançamentos</small></div></article>
           <article class="stat-card expense"><span class="stat-icon">↘</span><div><span>Despesas</span><strong id="expenseValue">R$ 0,00</strong><small id="expenseCount">0 lançamentos</small></div></article>
           <article class="stat-card balance"><span class="stat-icon">◇</span><div><span>Saldo disponível</span><strong id="balanceValue">R$ 0,00</strong><small id="balanceHint">Comece adicionando sua renda</small></div></article>
-          <article class="stat-card savings"><span class="stat-icon">◎</span><div><span>Taxa de economia</span><strong id="savingValue">0%</strong><small>Meta recomendada: 20%</small></div></article>
+          <article class="stat-card savings"><span id="savingRing" class="stat-icon saving-ring"><i></i></span><div><span>Taxa de economia</span><strong id="savingValue">0%</strong><small>Meta recomendada: 20%</small></div></article>
         </div>
+        <article id="monthlyInsight" class="monthly-insight positive-health">
+          <div class="health-orb"><i></i><span>◆</span></div>
+          <div class="insight-copy"><span>DESTAQUE DO MÊS</span><h3 id="insightTitle">Seu progresso financeiro</h3><p id="insightCompare">Adicione seus lançamentos para acompanhar sua evolução.</p></div>
+          <strong id="insightAmount">R$ 0,00</strong>
+          <div class="insight-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
         <div class="dashboard-grid reveal-group">
           <article class="panel chart-panel"><div class="panel-title"><div><h3>Receitas x despesas</h3><p>Comparativo dos últimos 6 meses</p></div><span class="legend"><i class="dot green"></i>Receitas <i class="dot orange"></i>Despesas</span></div><div id="barChart" class="bar-chart"></div></article>
           <article class="panel"><div class="panel-title"><div><h3>Gastos por categoria</h3><p>Para onde seu dinheiro está indo</p></div></div><div id="categoryChart" class="category-chart"></div></article>
