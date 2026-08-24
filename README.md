@@ -12,6 +12,13 @@ node server.js
 
 Depois abra `http://127.0.0.1:4173`. Evite abrir `index.html` diretamente.
 
+## Publicação na Vercel
+
+O projeto inclui `vercel.json` e pode ser publicado diretamente como site estático.
+Após publicar, adicione o domínio gerado em **Supabase > Authentication > URL
+Configuration > Site URL** para que confirmação de e-mail e recuperação de senha
+retornem ao endereço correto.
+
 ## Banco de dados Supabase
 
 O projeto está configurado para usar Supabase. Antes do primeiro cadastro, abra o
