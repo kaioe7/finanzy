@@ -1,4 +1,4 @@
-# Finanzy
+# MetaBolso
 
 Sistema de controle financeiro pessoal com painel de cliente e administração.
 

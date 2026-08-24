@@ -15,4 +15,4 @@ http.createServer((req,res)=>{
   }
   res.writeHead(200, {'Content-Type':types[path.extname(file)] || 'application/octet-stream','Cache-Control':'no-store'});
   fs.createReadStream(file).pipe(res);
-}).listen(4173,'127.0.0.1',()=>console.log('Finanzy: http://127.0.0.1:4173'));
+}).listen(4173,'127.0.0.1',()=>console.log('MetaBolso: http://127.0.0.1:4173'));

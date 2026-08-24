@@ -1,5 +1,5 @@
 -- Execute este arquivo uma única vez no Supabase: SQL Editor > New query > Run.
--- Finanzy: banco, perfis, segurança por usuário e suporte administrativo.
+-- MetaBolso: banco, perfis, segurança por usuário e suporte administrativo.
 
 create table if not exists public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
