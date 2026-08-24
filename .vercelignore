@@ -1,0 +1,9 @@
+.git/
+.github/
+.chrome-test/
+.vercel/
+node_modules/
+server.js
+supabase-schema.sql
+README.md
+*.log
