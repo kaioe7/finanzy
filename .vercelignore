@@ -3,6 +3,10 @@
 .chrome-test/
 .chrome-preview/
 preview.png
+.chrome-mobile/
+mobile-preview.png
+.chrome-mobile-fix/
+mobile-fixed.png
 .vercel/
 node_modules/
 server.js
